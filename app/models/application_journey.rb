@@ -1,0 +1,2 @@
+class ApplicationJourney < ApplicationRecord
+end
