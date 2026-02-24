@@ -1,5 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :chat
+  has_one_attached :file
 
   validates :role, presence: true
   validates :content, presence: true
