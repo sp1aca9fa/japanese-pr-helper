@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
   def show
     @user_application = UserApplication.find(params[:user_application_id])
     # @chat = @user_application.chats.first
+    @chats = @user_application.chats
     @chat = Chat.find(params[:id])
     @newchat = Chat.new
   end

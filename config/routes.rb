@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :user, only: [:show, :edit, :update, :destroy]
 
-  resources :chats, only: [ :destroy] do
+  resources :chats, only: [ :destroy, :create] do
     resources :messages, only: [:create]
   end
 

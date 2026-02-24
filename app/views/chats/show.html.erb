@@ -7,6 +7,7 @@
 
 <aside class="sidebar-container b-only">
 <div class="username-container b-only">
+<h3><%= @chat.user_application.user.first_name %> <%= @chat.user_application.user.last_name %></h3>
 <h3>Chat ID:<%= @chat.id %></h3>
 <h3><strong>User Application title:</strong>
 <%= @chat.user_application.title %></h3>
@@ -22,9 +23,11 @@
 
 </div>
 <div class="chatboxs-container b-only">
+    <%  @chats.each do |chat| %>
   <div class="chatbox b-only">
- <%= @chat.title %>
+    <%= chat.title %>
   </div>
+  <% end %>
 </div>
 <div class="setting b-only">
 
@@ -36,7 +39,7 @@
 
 <div class="message-details-container b-only">
 <div class="top-container b-only">
-
+ <%= @chat.title %>
 </div>
 <div class="messages-container b-only">
 
@@ -46,7 +49,7 @@
 
 </div>
 <div class="message-upload-container b-only">
-
+Type:
 </div>
 </div>
 
