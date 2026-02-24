@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for @user_application do |f| %>
+  <%= f.association :application_journey, label_method: :application_road %>
+  <%= f.input :title %>
+  <%= f.submit %>
+  <% end %>
+</div>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :user_applications, only: [:index, :show, :new, :create] do
     resources :chats, only: [:show, :new, :create, :destroy]
+ter
   end
 
   resources :user, only: [:show, :edit, :update, :destroy]

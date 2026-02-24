@@ -1,0 +1,9 @@
+<div class="container mt-3">
+  <div>
+    <h2>Your Applications</h2>
+  </div>
+  <ul class="list-group">
+  <% @user_applications.each do |user_application| %>
+    <li class="list-group-item"><%= link_to user_application.title, chat_path(user_application.chats.first) %></li>
+  <% end %>
+</div>
