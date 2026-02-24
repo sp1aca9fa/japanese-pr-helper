@@ -10,3 +10,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.banner {
+  padding: 24px;
+  margin-top: 24px;
+  width: 100%;
+  background-image: url("passport-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+}
