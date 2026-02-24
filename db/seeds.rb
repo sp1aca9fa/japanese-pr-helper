@@ -22,7 +22,7 @@ puts "Seeding DB"
   )
   user.save!
   application_journey = ApplicationJourney.new(
-    application_road: 1,
+    application_road: rand(1..5),
     system_prompt: "DWJANAWIOSBIASDA"
   )
   application_journey.description = ApplicationJourney::DESCRIPTION[application_journey.application_road.to_sym]
@@ -30,7 +30,7 @@ puts "Seeding DB"
   user_application = UserApplication.new(
     user: user,
     application_journey: application_journey,
-    title: "djwaiodnwaio"
+    title: Faker::Artist.name
   )
   user_application.save!
   chat = Chat.new(
