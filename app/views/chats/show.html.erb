@@ -1,0 +1,53 @@
+<p>
+  <strong>Created:</strong>
+  <%= l(@chat.created_at, format: :long) %>
+</p>
+
+<div class="chat-main-container b-only">
+
+<aside class="sidebar-container b-only">
+<div class="username-container b-only">
+<h3>Chat ID:<%= @chat.id %></h3>
+<h3><strong>User Application title:</strong>
+<%= @chat.user_application.title %></h3>
+</div>
+<div class="new-chat-container b-only">
+ <strong>new chat</strong>
+<%= simple_form_for [@user_application, @newchat],
+                    remote: true,
+                    data: { turbo_method: :post } do |f| %>
+  <%= f.input :title %>
+  <%= f.button :submit, "send" %>
+<% end %>
+
+</div>
+<div class="chatboxs-container b-only">
+  <div class="chatbox b-only">
+ <%= @chat.title %>
+  </div>
+</div>
+<div class="setting b-only">
+
+</div>
+</aside>
+
+
+
+
+<div class="message-details-container b-only">
+<div class="top-container b-only">
+
+</div>
+<div class="messages-container b-only">
+
+<% @chat.messages.each do |message|%>
+<div class="message b-only"><p><%= message.role %> :  <%=  message.content %></p></div>
+<% end %>
+
+</div>
+<div class="message-upload-container b-only">
+
+</div>
+</div>
+
+</div>

@@ -12,13 +12,14 @@
 puts "Cleaning DB"
 User.destroy_all
 
+
 puts "Seeding DB"
 5.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: "123456"
   )
   user.save!
   application_journey = ApplicationJourney.new(

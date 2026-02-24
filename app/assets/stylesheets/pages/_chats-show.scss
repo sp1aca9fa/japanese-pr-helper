@@ -1,0 +1,30 @@
+.chat-main-container{
+  display: flex;
+}
+
+.sidebar-container{
+  flex:1;
+  height: 86vh;
+  position: relative;
+}
+
+.message-details-container{
+  flex:3;
+  height: 86vh;
+  position: relative;
+}
+
+.setting{
+position: absolute;
+bottom: 0px;
+left: 0px;
+width: 100%;
+}
+
+
+.message-upload-container{
+  position: absolute;
+bottom: 0px;
+right: 0px;
+width: 100%;
+}
