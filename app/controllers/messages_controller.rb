@@ -37,7 +37,7 @@ class MessagesController < ApplicationController
   end
 
   def message_response
-    ruby_llm_chat = RubyLLM.chat
+    ruby_llm_chat = RubyLLM.chat(model: 'gpt-4o')
     return ruby_llm_chat.with_instructions(set_history_and_context).ask(@message.content)
   end
 
