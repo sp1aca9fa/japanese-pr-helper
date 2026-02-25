@@ -1,35 +1,34 @@
-<div class="chat-main-container b-only d-flex">
+<div class="chat-main-container d-flex">
 
 
-  <aside class="sidebar-container b-only">
-    <div class="username-container b-only">
+  <aside class="sidebar-container">
+    <div class="username-container text-center">
       <h3>
-        <%= link_to new_user_application_path do %><i class="fa-solid fa-file-circle-plus"></i><% end %>
-
         <%= @chat.user_application.user.first_name %>
         <%= @chat.user_application.user.last_name %>
       </h3>
-      <h5>Chat ID: <%= @chat.id %></h5>
       <p>
-        <strong>Application: </strong>
-        <%= @chat.user_application.title %>
+        Application:
+        <strong><%= @chat.user_application.title %></strong>
       </p>
     </div>
 
 
-    <div class="new-chat-container b-only">
+    <div class="new-chat-container">
       <%= simple_form_for [@user_application, @newchat],
                           data: { turbo_method: :post } do |f| %>
         <%= f.input :title,
                     placeholder: "New Chat",
                     label: false,
-                    wrapper: false %>
+                    wrapper: false,
+                    input_html: { class: "rounded-5" }
+                    %>
         <%= f.button :submit, "+", class: "send_button" %>
       <% end %>
     </div>
 
 
-    <div id="chatboxs-container" class="chatboxs-container b-only" >
+    <div id="chatboxs-container" class="chatboxs-container" >
     <% @chats.each do |chat| %>
     <%= render "chat_row", chat: chat,
                          user_application: @user_application %>

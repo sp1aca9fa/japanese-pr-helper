@@ -15,11 +15,11 @@
 .new-chat-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 
   form {
     display: flex;
-    width: 100%;
+    width: 95%;
   }
 }
 
@@ -73,7 +73,7 @@
 .chatboxs-container {
   display: flex;
   flex-direction: column;
-  height: calc(70vh - 65px);
+  height: calc(80vh - 8px);
   overflow-y: scroll;
   scrollbar-width: none;
 }
