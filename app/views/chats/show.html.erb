@@ -9,6 +9,7 @@
   <aside class="sidebar-container b-only">
     <div class="username-container b-only">
       <h3>
+        <%= link_to raw('<i class="fa-solid fa-file-circle-plus"></i>'),new_user_application_path %>
         <%= @chat.user_application.user.first_name %>
         <%= @chat.user_application.user.last_name %>
       </h3>
