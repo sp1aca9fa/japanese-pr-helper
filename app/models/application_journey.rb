@@ -14,29 +14,29 @@ class ApplicationJourney < ApplicationRecord
 
   SYSTEM_PROMPT = ""
   DESCRIPTION = {
-    married: "1 (if the applicant is a spouse of a
-    Japanese national, a spouse of a permanent resident, a spouse of a special
-    permanent resident, or their biological child, etc.)".squish,
-    long_term: "2 (if the applicant has a \"long-term resident\" status)",
-    work: "3 (If the applicant has a work-related residence status
-    (such as \"Engineer/Specialist in Humanities/International Services\"
-    or \"Skilled Work\") or \"Dependent\" residence status)".squish,
+    married: "1 Those who are the spouse of a
+    Japanese national, spouse of a permanent resident, spouse of a special
+    permanent resident, or their biological child, etc.".squish,
+    long_term: "2 Those who have a “long-term resident” status",
+    work: "3 Those who have a work-related residence status
+    (such as “Engineer/Specialist in Humanities/International Services”
+    or “Skilled Work”) or “Dependent” residence status".squish,
     highly1a: "4-(1)-A Those who have been granted permission to stay in Japan as
-    \"highly skilled foreign professionals\" with a status of residence of
-    \"highly skilled professional\" or \"designated activities\" and who have 80 or more points.".squish,
+    “highly skilled foreign professionals” with a status of residence of
+    “highly skilled professional” or “designated activities” and who have 80 or more points.".squish,
     highly1b: "4-(1)-B Those who have 80 points or more when calculating points one year prior to
     applying for permanent residence permission and who are residing in Japan with permission for
     a status of residence other than 4-(1)-A.".squish,
     highly2a: "4-(2)-A Those who have been granted permission to stay in Japan as
-    \"highly skilled foreign professionals\" with a status of residence of
-    \"highly skilled professional\" or \"designated activities\" and who have 70 or more points.".squish,
+    “highly skilled foreign professionals” with a status of residence of
+    “highly skilled professional” or “designated activities” and who have 70 or more points.".squish,
     highly2b: "4-(2)-B Those who have 70 points or more when calculating points
     three years prior to applying for permanent residence and who are residing
     in Japan with a status of residence other than 4-(2)-A.".squish,
-    special1: "5-(1) Those who have been confirmed to meet the criteria for \"specially highly skilled personnel\"",
+    special1: "5-(1) Those who have been confirmed to meet the criteria for “specially highly skilled personnel”",
     special2: "5-(2) Those who have not been confirmed as meeting the criteria for
-     \"specially highly skilled foreign professionals\" (including those whose
-     current residence status is \"highly skilled professional\" and who have
+     “specially highly skilled foreign professionals” (including those whose
+     current residence status is “highly skilled professional” and who have
      not been confirmed as specially highly skilled foreign professionals).".squish
   }
 
