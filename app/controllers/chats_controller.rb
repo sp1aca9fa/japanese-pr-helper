@@ -3,7 +3,8 @@ class ChatsController < ApplicationController
   def show
     @chats = @user_application.chats.order(done: :asc, created_at: :desc)
     @chat = @user_application.chats.find_by(id: params[:id])
-    redirect_to_latest_open_chat_or_fallback unless @chat.present?
+    return redirect_to_latest_open_chat_or_fallback unless @chat.present?
+
     @newchat = Chat.new
   end
 

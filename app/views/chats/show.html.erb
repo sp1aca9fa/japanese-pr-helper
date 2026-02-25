@@ -3,10 +3,12 @@
 
   <aside class="sidebar-container">
     <div class="username-container text-center">
+      <%= link_to user_applications_path(user_id: current_user.id), class: "text-decoration-none" do %>
       <h3>
         <%= @chat.user_application.user.first_name %>
         <%= @chat.user_application.user.last_name %>
       </h3>
+      <% end %>
       <p>
         Application:
         <strong><%= @chat.user_application.title %></strong>
@@ -40,12 +42,15 @@
 
 
   <div class="message-details-container b-only">
-    <div class="top-container b-only text-center">
-      <%= @chat.title %>
+    <div class="row">
+      <div class="top-container d-flex ">
+       <h3 class="top-container-title text-center col-10"><%= @chat.title %></h3>
+        <div class="top-container-button spare-container col-2"></div>
+      </div>
     </div>
 
 
-    <div class="messages-container b-only">
+    <div class="messages-container">
       <div id="messages">
       <% @chat.messages.order(:created_at).each do |message| %>
         <div class="message b-only <%= message.role == 'user' ? 'right' : 'left' %>">

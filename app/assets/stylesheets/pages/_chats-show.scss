@@ -44,6 +44,7 @@
   a:hover {
     background-color: rgb(167, 24, 24);
   }
+
 }
 
 .messages-container {
@@ -90,6 +91,7 @@
     background-color: #cccccc98;
   }
 
+
   .chatbox-controls {
     margin-left: auto;
     display: flex;
@@ -103,4 +105,11 @@
   bottom: 0px;
   right: 0px;
   width: 98%;
+}
+
+.top-container-title {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 20px;
+  border: #ccc 1px solid;
 }
