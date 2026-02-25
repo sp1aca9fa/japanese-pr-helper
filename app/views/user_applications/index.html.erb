@@ -1,9 +1,14 @@
 <div class="container mt-3">
-  <div>
-    <h2>Your Applications</h2>
+  <div class="d-flex">
+    <div>
+      <h2>Your Applications</h2>
+    </div>
+    <div class="mx-3">
+      <%= link_to "New Application", new_user_application_path, class: "btn btn-primary" %>
+    </div>
   </div>
   <ul class="list-group">
   <% @user_applications.each do |user_application| %>
-    <li class="list-group-item"><%= link_to user_application.title, chat_path(user_application.chats.first) %></li>
+    <li class="list-group-item"><%= link_to user_application.title, user_application_chat_path(user_application, user_application.chats.last) %></li>
   <% end %>
 </div>
