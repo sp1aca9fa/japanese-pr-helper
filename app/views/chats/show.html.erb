@@ -50,17 +50,12 @@
 
     <div class="messages-container b-only">
       <div id="messages">
-      <% @chat.messages.order(:created_at).each do |message| %>
-        <div class="message b-only <%= message.role == 'user' ? 'right' : 'left' %>">
-          <%# <p> message.role  :</p> %>
-          <p> <%= message.content %></p>
-        </div>
-      <% end %>
+        <%= render "messages/messages", messages: @chat.messages %>
+      </div>
     </div>
-</div>
 
-    <div class="message-upload-container b-only">
-      Type:
+    <div id="new_message" class="message-upload-container b-only">
+      <%= render "messages/form", chat: @chat, message: @message %>
     </div>
 
 
