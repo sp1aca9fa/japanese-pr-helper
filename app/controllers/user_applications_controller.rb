@@ -12,7 +12,7 @@ class UserApplicationsController < ApplicationController
     @user_application.user = current_user
     if @user_application.save
       populate_chats(@user_application)
-      redirect_to user_application_chats_path(@user_application, @user_application.chats.first)
+      redirect_to user_application_chat_path(@user_application, @user_application.chats.last)
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,6 +21,7 @@ class UserApplicationsController < ApplicationController
   private
 
   def populate_chats(user_application)
+    titles = []
     case user_application.application_journey.application_road
     when "married"
       titles = [
@@ -152,7 +153,7 @@ class UserApplicationsController < ApplicationController
         "Proof of Annual Income (年収を証する文書)"
       ]
     end
-    titles.each do |title|
+    titles.reverse.each do |title|
       chat = Chat.new(title: title)
       chat.user_application = user_application
       chat.save
