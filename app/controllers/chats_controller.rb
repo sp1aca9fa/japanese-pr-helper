@@ -4,6 +4,9 @@ class ChatsController < ApplicationController
     # @chat = @user_application.chats.first
     @chats = @user_application.chats.order(done: :asc, created_at: :desc)
     @chat = @user_application.chats.find_by(id: params[:id])
+
+    return redirect_to_latest_open_chat_or_fallback unless @chat.present?
+
     @newchat = Chat.new
   end
 
@@ -20,8 +23,7 @@ class ChatsController < ApplicationController
   def destroy
     chat = Chat.find(params[:id])
     chat.destroy
-    redirect_to user_application_chat_path(@user_application,
-                                           @user_application.chats.where(done: false).order(id: :desc).first)
+    redirect_to_latest_open_chat_or_fallback
   end
 
   def update
@@ -46,5 +48,12 @@ class ChatsController < ApplicationController
 
   def set_user_application
     @user_application = UserApplication.find(params[:user_application_id])
+  end
+
+  def redirect_to_latest_open_chat_or_fallback
+    target_chat = @user_application.chats.where(done: false).order(id: :desc).first
+    return redirect_to user_application_chat_path(@user_application, target_chat) if target_chat.present?
+
+    redirect_to new_user_application_path
   end
 end
