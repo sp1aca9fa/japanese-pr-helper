@@ -1,7 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_user_application, only: %i[show create destroy]
   def show
-    # @chat = @user_application.chats.first
     @chats = @user_application.chats.order(done: :asc, created_at: :desc)
     @chat = @user_application.chats.find_by(id: params[:id])
 
@@ -52,6 +51,7 @@ class ChatsController < ApplicationController
 
   def redirect_to_latest_open_chat_or_fallback
     target_chat = @user_application.chats.where(done: false).order(id: :desc).first
+    target_chat ||= @user_application.chats.order(id: :desc).first
     return redirect_to user_application_chat_path(@user_application, target_chat) if target_chat.present?
 
     redirect_to new_user_application_path
