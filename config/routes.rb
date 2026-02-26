@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :user_applications, only: [:index, :new, :create, :destroy] do
-    resources :chats, only: [:show, :new, :create, :update, :destroy]
+    resources :chats, only: [:show, :new, :create, :update, :destroy] do
+      member do
+        patch :toggle_pin
+      end
+    end
   end
 
   resources :user, only: [:show, :edit, :update, :destroy]

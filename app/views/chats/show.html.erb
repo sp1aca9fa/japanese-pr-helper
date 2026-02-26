@@ -45,8 +45,19 @@
 
 
   <div class="message-details-container">
-    <div class="top-container text-center">
+    <div class="top-container text-center d-flex">
        <h3 class="top-container-title text-center col-10"><%= @chat.title %></h3>
+    <%= render "pin_button", chat: @chat,
+                         user_application: @user_application %>
+       <div class="dropdown col-2">
+  <button class="btn btn-secondary dropdown-toggle mt-2 rounded-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Document
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+  </ul>
+</div>
+
     </div>
 
 

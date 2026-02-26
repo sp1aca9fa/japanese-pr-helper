@@ -1,0 +1,11 @@
+<%= turbo_stream.replace "chat_pin_#{@chat.id}" do %>
+  <%= render "pin_button", user_application: @user_application, chat: @chat %>
+<% end %>
+
+<%= turbo_stream.replace "chatboxs-container" do %>
+  <div id="chatboxs-container" class="chatboxs-container">
+    <% @chats.each do |chat| %>
+      <%= render "chat_row", chat: chat, user_application: @user_application %>
+    <% end %>
+  </div>
+<% end %>

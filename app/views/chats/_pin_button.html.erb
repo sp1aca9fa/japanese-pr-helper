@@ -1,0 +1,7 @@
+<div id="chat_pin_<%= chat.id %>" class="mt-3">
+  <%= button_to toggle_pin_user_application_chat_path(user_application, chat),
+       method: :patch,
+       class: "pin-btn border-0" do %>
+   <i class="fa <%= chat.pin? ? 'fa-thumbtack' : 'fa-thumbtack-slash' %> fa-xl"></i>
+   <% end %>
+</div>

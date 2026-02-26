@@ -53,6 +53,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_26_064345) do
   create_table "chats", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.boolean "done", default: false
+    t.boolean "pin", default: false, null: false
     t.text "system_prompt"
     t.string "title"
     t.datetime "updated_at", null: false
