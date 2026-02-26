@@ -21,23 +21,22 @@ class ApplicationJourney < ApplicationRecord
     work: "3 Those who have a work-related residence status
     (such as “Engineer/Specialist in Humanities/International Services”
     or “Skilled Work”) or “Dependent” residence status".squish,
-    highly1a: "4-(1)-A Those who have been granted permission to stay in Japan as
-    “highly skilled foreign professionals” with a status of residence of
+    highly1a: "4-(1)-ア Those who have been granted permission to stay in Japan as a
+    “highly skilled foreign professional” with a status of residence of
     “highly skilled professional” or “designated activities” and who have 80 or more points.".squish,
-    highly1b: "4-(1)-B Those who have 80 points or more when calculating points one year prior to
+    highly1b: "4-(1)-イ Those who have 80 points or more when calculating points one year prior to
     applying for permanent residence permission and who are residing in Japan with permission for
-    a status of residence other than 4-(1)-A.".squish,
-    highly2a: "4-(2)-A Those who have been granted permission to stay in Japan as
-    “highly skilled foreign professionals” with a status of residence of
+    a status of residence other than 4-(1)-ア.".squish,
+    highly2a: "4-(2)-ア Those who have been granted permission to stay in Japan as a
+    “highly skilled foreign professional” with a status of residence of
     “highly skilled professional” or “designated activities” and who have 70 or more points.".squish,
-    highly2b: "4-(2)-B Those who have 70 points or more when calculating points
+    highly2b: "4-(2)-イ Those who have 70 points or more when calculating points
     three years prior to applying for permanent residence and who are residing
-    in Japan with a status of residence other than 4-(2)-A.".squish,
-    special1: "5-(1) Those who have been confirmed to meet the criteria for “specially highly skilled personnel”",
-    special2: "5-(2) Those who have not been confirmed as meeting the criteria for
-     “specially highly skilled foreign professionals” (including those whose
-     current residence status is “highly skilled professional” and who have
-     not been confirmed as specially highly skilled foreign professionals).".squish
+    in Japan with a status of residence other than 4-(2)-ア.".squish,
+    special1: "5-(1) Those applying as a “specially highly skilled foreign professional”
+    who have been confirmed to meet the criteria for it",
+    special2: "5-(2) Those applying as a “specially highly skilled foreign professional”
+    who have not been confirmed as meeting the criteria for it".squish
   }
 
   URL = {
