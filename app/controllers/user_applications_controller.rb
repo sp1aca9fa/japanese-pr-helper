@@ -1,6 +1,10 @@
 class UserApplicationsController < ApplicationController
   def index
-    @user_applications = current_user.user_applications
+    user_applications = current_user.user_applications
+    user_applications.each do |user_application|
+      user_application.destroy if user_application.chats.empty?
+    end
+    @user_applications = user_applications
   end
 
   def new
@@ -16,6 +20,11 @@ class UserApplicationsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user_application = UserApplication.find(params[:id])
+    @user_application.destroy
   end
 
   private
