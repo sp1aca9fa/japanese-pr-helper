@@ -53,6 +53,7 @@ gem "rubyXL"
 gem "kramdown"
 gem "rouge"
 gem "kramdown-parser-gfm"
+gem "faker"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -67,7 +68,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  gem "faker"
 end
 
 group :development do
