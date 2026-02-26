@@ -1,5 +1,8 @@
 <div class="banner d-flex justify-content-center align-items-center">
+  <% if user_signed_in? %>
+    <div><%= link_to "See Your Applications!", user_applications_path(current_user), class: "btn btn-primary mx-3" %></div>
+  <% end %>
   <div>
-    <%= link_to "Create Application!", new_user_application_path, class: "btn-sign-up" %>
+    <%= link_to "Create Application!", new_user_application_path, class: "btn btn-sign-up mx-3" %>
   </div>
 </div>

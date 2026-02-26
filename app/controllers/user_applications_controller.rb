@@ -253,7 +253,7 @@ class UserApplicationsController < ApplicationController
       ]
     end
     titles.reverse.each do |title|
-      chat = Chat.new(title: title, system_prompt: title)
+      chat = Chat.new(title: title.gsub(" (", "\n("), system_prompt: title)
       chat.user_application = user_application
       chat.save
     end
