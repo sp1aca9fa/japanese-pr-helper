@@ -9,7 +9,7 @@
 
 .message-details-container {
   flex: 3;
-  height: 91vh;
+  height: 80vh;
   position: relative;
 
   .row-chat {
@@ -83,7 +83,7 @@
 .chatboxs-container {
   display: flex;
   flex-direction: column;
-  height: 78vh;
+  height: 85vh;
   overflow-y: scroll;
   scrollbar-width: none;
 }
