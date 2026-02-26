@@ -20,13 +20,15 @@ class MessagesController < ApplicationController
       llm_response
 
       respond_to do |format|
-        format.turbo_stream
         format.html { redirect_to chat_path(@chat) }
+        format.turbo_stream
       end
     else
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.update("new_message", partial: "messages/form", locals: { chat: @chat, message: @message }) }
         format.html { render "chats/show", status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("new_message", partial: "messages/form", locals: { chat: @chat, message: @message })
+        end
       end
     end
   end
@@ -61,7 +63,7 @@ class MessagesController < ApplicationController
   # just to make sure the app wont unexpectedly fail, very simple implementation
   def summarize_chat
     recent_messages = @chat.messages.order(:created_at).last(20)
-    summary = @chat.with_instructions(summarize_instructions).ask(recent_messages)
+    summary = @ruby_llm_chat.with_instructions(summarize_instructions).ask(recent_messages)
     # I'm not sure if the line below would work, but Chappy says it should.
     @chat.messages.destroy(recent_messages)
     @ruby_llm_chat.add_message(summary)
@@ -86,10 +88,12 @@ class MessagesController < ApplicationController
     @application_journey = @chat.user_application.application_journey
     <<~PROMPT
       Japanese permanent visa application, type/category: #{@application_journey.description}.
-      Need help acquiring #{@chat.title} related documents for the application.
-      Here are some additional instructions (if any): #{@application_journey.system_prompt}.
+      The type of permanent visa application is: #{@application_journey.system_prompt}.
+      Need help acquiring #{@chat.system_prompt} related documents for the application.
       Keep objective to application. Minimize unnecessary interactions. Keep text formation minimalistic.
       Start the answer with an ordered TO DO list if applicable.
+      If the asked information is not related to Japanese permanent visa application and its relevant documents,
+      please simply reply with "Please refrain from making unrelated questions/requests"
     PROMPT
   end
 
