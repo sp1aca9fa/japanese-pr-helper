@@ -74,10 +74,12 @@ class MessagesController < ApplicationController
     @application_journey = @chat.user_application.application_journey
     <<~PROMPT
       Japanese permanent visa application, type/category: #{@application_journey.description}.
-      Need help acquiring #{@chat.title} related documents for the application.
-      Here are some additional instructions (if any): #{@application_journey.system_prompt}.
+      The type of permanent visa application is: #{@application_journey.system_prompt}.
+      Need help acquiring #{@chat.system_prompt} related documents for the application.
       Keep objective to application. Minimize unnecessary interactions. Keep text formation minimalistic.
       Start the answer with an ordered TO DO list if applicable.
+      If the asked information is not related to Japanese permanent visa application and its relevant documents,
+      please simply reply with "Please refrain from making unrelated questions/requests"
     PROMPT
   end
 
