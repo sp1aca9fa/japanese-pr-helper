@@ -3,7 +3,6 @@ class ChatsController < ApplicationController
   def show
     @chats = @user_application.chats.order(done: :asc, created_at: :desc)
     @chat = @user_application.chats.find_by(id: params[:id])
-
     return redirect_to_latest_open_chat_or_fallback unless @chat.present?
 
     @newchat = Chat.new
@@ -15,7 +14,8 @@ class ChatsController < ApplicationController
     if @newchat.save
       redirect_to user_application_chat_path(@user_application, @newchat)
     else
-      render :new, status: :unprocessable_entity
+      target_chat = target_chat(@user_application)
+      redirect_to user_application_chat_path(@user_application, target_chat), alert: 'Title Existed!'
     end
   end
 
@@ -50,10 +50,17 @@ class ChatsController < ApplicationController
   end
 
   def redirect_to_latest_open_chat_or_fallback
-    target_chat = @user_application.chats.where(done: false).order(id: :desc).first
-    target_chat ||= @user_application.chats.order(id: :desc).first
-    return redirect_to user_application_chat_path(@user_application, target_chat) if target_chat.present?
+    target_chat = target_chat(@user_application)
+    if target_chat.present?
+      redirect_to user_application_chat_path(@user_application, target_chat), status: :see_other
+    else
+      redirect_to user_applications_path(user_id: current_user.id), status: :see_other
+    end
+  end
 
-    redirect_to new_user_application_path
+  def target_chat(user_application)
+    chat = user_application.chats.where(done: false).order(id: :desc).first
+    chat ||= user_application.chats.order(id: :desc).first
+    chat
   end
 end

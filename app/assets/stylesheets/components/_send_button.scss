@@ -1,4 +1,11 @@
 .send_button {
-  border: 1px solid black;
+  border: 1px solid rgba(134, 130, 130, 0.363);
   float: right;
+  border-radius: 10px;
+  margin-left: 8px;
+
+  &:hover {
+    border: 1px solid rgba(44, 42, 42, 0.13);
+    background-color: #cccccc98;
+  }
 }

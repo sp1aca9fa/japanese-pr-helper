@@ -10,7 +10,7 @@
       <%= f.input :done,
       as: :boolean,
       label: false,
-      input_html: { onchange: "this.form.requestSubmit()" ,  class: "mx-3 d-block"} %>
+      input_html: { onchange: "this.form.requestSubmit()" ,  class: "mt-3 me-2"} %>
         <% end %>
         <% if chat.done %>
           <%= link_to user_application_chat_path(user_application, chat), data: { turbo_method: :delete,

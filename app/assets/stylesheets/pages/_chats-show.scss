@@ -1,25 +1,31 @@
 .sidebar-container {
   flex: 1;
-  height: 90vh;
+  height: 92vh;
   position: relative;
   display: flex;
   flex-direction: column;
+  border-right: #ccc 1px solid;
 }
 
 .message-details-container {
   flex: 3;
-  height: 90vh;
+  height: 91vh;
   position: relative;
+
+  .row-chat {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .new-chat-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 
   form {
     display: flex;
-    width: 100%;
+    width: 95%;
   }
 }
 
@@ -44,12 +50,13 @@
   a:hover {
     background-color: rgb(167, 24, 24);
   }
+
 }
 
 .messages-container {
   display: flex;
   flex-direction: column;
-  height: calc(86vh - 65px);
+  height: calc(87vh - 75px);
   overflow-y: scroll;
 }
 
@@ -57,8 +64,11 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  width: 50%;
-  word-break: break-word;
+  width: fit-content;
+  max-width: 75%;
+  min-width: 100px;
+  white-space: normal; // keep the same formatting(space)
+  overflow-wrap: anywhere; //better than word-break: break-word;
 }
 
 .message.left {
@@ -73,7 +83,7 @@
 .chatboxs-container {
   display: flex;
   flex-direction: column;
-  height: calc(70vh - 65px);
+  height: 78vh;
   overflow-y: scroll;
   scrollbar-width: none;
 }
@@ -90,6 +100,7 @@
     background-color: #cccccc98;
   }
 
+
   .chatbox-controls {
     margin-left: auto;
     display: flex;
@@ -97,10 +108,27 @@
   }
 }
 
-.chatbox .message-upload-container {
+.message-upload-container {
   position: absolute;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 20px;
   height: 50px;
   bottom: 0px;
-  right: 0px;
-  width: 98%;
+  right: 36px;
+  width: 95%;
+
+  .send-and-upload {
+    position: absolute;
+    top: 12px;
+    right: 24px;
+  }
+
+}
+
+.top-container-title {
+  padding: 5px;
+  margin: 5px 0px;
+  border-radius: 20px;
+  border: #ccc 1px solid
 }
