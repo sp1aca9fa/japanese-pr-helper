@@ -5,6 +5,7 @@ class UserApplicationsController < ApplicationController
       user_application.destroy if user_application.chats.empty?
     end
     @user_applications = user_applications
+    raise
   end
 
   def new
@@ -256,7 +257,7 @@ class UserApplicationsController < ApplicationController
       ]
     end
     titles.reverse.each do |title|
-      chat = Chat.new(title: title)
+      chat = Chat.new(title: title, system_prompt: title)
       chat.user_application = user_application
       chat.save
     end
