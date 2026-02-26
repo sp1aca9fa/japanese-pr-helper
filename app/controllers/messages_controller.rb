@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   SAFE_LIMIT = MAX_CONTEXT - RESERVED_RESPONSE - RESERVED_NEW_MESSAGE
 
   before_action :set_chat, only: [:create]
-  before_action :summarize_chat, only: [:create]
+  before_action :build_llm, only: [:create]
   before_action :build_chat_history, only: [:create]
   before_action :set_context, only: [:create]
 
@@ -72,13 +72,16 @@ class MessagesController < ApplicationController
   # 5- building the chat history and using summarize_chat only if too many tokens already used
   def build_chat_history
     # counting all tokens (per ruby llm documentation)
-    total_chat_tokens = @chat.messages.sum { |msg| msg.input_tokens.to_i + msg.output_tokens.to_i }
+    total_chat_tokens = @chat.messages.sum { |msg| msg.content.length / 4 }
 
     if total_chat_tokens >= SAFE_LIMIT * 0.9
       summarize_chat
     else
       @chat.messages.each do |message|
-        @ruby_llm_chat.add_message(message)
+        @ruby_llm_chat.add_message(
+          role: message.role,
+          content: message.content
+        )
       end
     end
   end
