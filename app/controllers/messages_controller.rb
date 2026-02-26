@@ -20,13 +20,15 @@ class MessagesController < ApplicationController
       llm_response
 
       respond_to do |format|
-        format.turbo_stream
         format.html { redirect_to chat_path(@chat) }
+        format.turbo_stream
       end
     else
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.update("new_message", partial: "messages/form", locals: { chat: @chat, message: @message }) }
         format.html { render "chats/show", status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("new_message", partial: "messages/form", locals: { chat: @chat, message: @message })
+        end
       end
     end
   end
@@ -61,7 +63,7 @@ class MessagesController < ApplicationController
   # just to make sure the app wont unexpectedly fail, very simple implementation
   def summarize_chat
     recent_messages = @chat.messages.order(:created_at).last(20)
-    summary = @chat.with_instructions(summarize_instructions).ask(recent_messages)
+    summary = @ruby_llm_chat.with_instructions(summarize_instructions).ask(recent_messages)
     # I'm not sure if the line below would work, but Chappy says it should.
     @chat.messages.destroy(recent_messages)
     @ruby_llm_chat.add_message(summary)
