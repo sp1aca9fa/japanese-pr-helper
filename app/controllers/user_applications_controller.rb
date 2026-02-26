@@ -5,7 +5,7 @@ class UserApplicationsController < ApplicationController
       user_application.destroy if user_application.chats.empty?
     end
     @user_applications = user_applications
-    raise
+    # raise
   end
 
   def new
