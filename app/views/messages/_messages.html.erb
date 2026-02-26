@@ -1,4 +1,4 @@
-<% messages.order(:created_at).each do |message| %>
+<% messages.each do |message| %>
   <div class="message b-only <%= message.role == 'user' ? 'right' : 'left' %>">
     <p><%= raw(render_markdown(message.content)) %></p>
   </div>
