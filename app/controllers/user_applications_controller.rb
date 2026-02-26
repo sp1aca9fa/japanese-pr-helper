@@ -1,11 +1,6 @@
 class UserApplicationsController < ApplicationController
   def index
-    user_applications = current_user.user_applications
-    user_applications.each do |user_application|
-      user_application.destroy if user_application.chats.empty?
-    end
-    @user_applications = user_applications
-    raise
+    @user_applications = current_user.user_applications
   end
 
   def new
@@ -24,8 +19,9 @@ class UserApplicationsController < ApplicationController
   end
 
   def destroy
-    @user_application = UserApplication.find(params[:id])
-    @user_application.destroy
+    user_application = UserApplication.find(params[:id])
+    user_application.destroy
+    redirect_to user_applications_path, status: :see_other
   end
 
   private
