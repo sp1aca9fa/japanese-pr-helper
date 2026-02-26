@@ -61,13 +61,13 @@
 }
 
 .message {
-  padding: 0px 8px;
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 20px;
   width: fit-content;
   max-width: 75%;
   min-width: 100px;
-
+  white-space: normal; // keep the same formatting(space)
   overflow-wrap: anywhere; //better than word-break: break-word;
 }
 

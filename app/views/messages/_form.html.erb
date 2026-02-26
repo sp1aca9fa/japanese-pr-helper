@@ -1,5 +1,5 @@
 <%= simple_form_for [chat, message] do |f| %>
-  <%= f.input :content, label: false, required: true, placeholder: "Ask a question" %>
+  <%= f.input :content, label: "Ask a question", required: true, placeholder: "How should I get started with the challenge?" %>
   <%= f.input :file %>
   <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
 <% end %>

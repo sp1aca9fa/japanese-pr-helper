@@ -1,9 +1,5 @@
 <% messages.each do |message| %>
-  <% if message.role == "user" %>
-    <div class="message b-only right" data-controller="auto-scroll">
-  <% else %>
-    <div class="message b-only left">
-  <% end %>
-      <p><%= raw(render_markdown(message.content)) %></p>
-    </div>
+  <div class="message b-only <%= message.role == 'user' ? 'right' : 'left' %>">
+    <p><%= raw(render_markdown(message.content)) %></p>
+  </div>
 <% end %>
