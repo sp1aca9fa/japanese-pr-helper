@@ -28,7 +28,10 @@ class ChatsController < ApplicationController
 
   def update
     @chat = Chat.find(params[:id])
+    @user_application = @chat.user_application
     return unless @chat.update(done_params)
+
+    @chats = @user_application.chats.order(pin: :desc, done: :asc, created_at: :desc)
 
     respond_to do |format|
       format.turbo_stream
