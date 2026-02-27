@@ -112,6 +112,7 @@
 .chatboxs-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 85vh;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -125,6 +126,7 @@
   border: 1px solid #ccc;
   border-radius: 20px;
   transition: all 0.3s ease;
+  width: 100%;
 
   &:hover {
     background-color: #cccccc98;
