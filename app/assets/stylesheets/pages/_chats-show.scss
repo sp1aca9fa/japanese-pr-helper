@@ -100,18 +100,19 @@
 .message.left {
   margin-right: auto;
   margin-left: 16px;
-  background-color: #dad8d8b9;
+  background-color: #dad8d8e5;
 }
 
 .message.right {
   margin-left: auto;
   margin-right: 12px;
-  background-color: #ccccccb9;
+  background-color: #ccccccee;
 }
 
 .chatboxs-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 85vh;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -125,6 +126,7 @@
   border: 1px solid #ccc;
   border-radius: 20px;
   transition: all 0.3s ease;
+  width: 100%;
 
   &:hover {
     background-color: #cccccc98;
@@ -139,7 +141,7 @@
 }
 
 .chatbox.pinned {
-  border: 2px solid rgba(255, 0, 0, 0.151);
+  border: 3px solid rgba(255, 0, 0, 0.445);
 }
 
 .message-upload-container {
