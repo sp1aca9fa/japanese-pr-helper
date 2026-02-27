@@ -1,5 +1,11 @@
+<div class="message-form">
 <%= simple_form_for [chat, message] do |f| %>
+<div class="message-form-content mt-3">
   <%= f.input :content, label: false, required: true, placeholder: "Ask a question" %>
-  <%= f.input :file %>
-  <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
+</div>
+  <div class="message-form-file mt-3">
+    <%= f.input :file ,label: false %>
+  </div>
+  <%= f.button :submit, '', class: 'btn btn-primary send-btn' %>
 <% end %>
+</div>
