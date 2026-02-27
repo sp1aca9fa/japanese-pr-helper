@@ -260,7 +260,7 @@ class UserApplicationsController < ApplicationController
     end
   end
 
-  def set_initial_context
+  def initial_context(chat)
     <<~PROMPT
       You are an assistant helping users prepare a Japanese Permanent Residency (PR) application.
       A new application has just been created. A dedicated chat exists for each required document.
@@ -280,12 +280,16 @@ class UserApplicationsController < ApplicationController
         - Short subtitles when helpful
         - Bullet point lists.
       The response should feel like a professional instruction guide.
+      Additional context about the application:
+      #{chat.system_prompt}
+      #{chat.user_application.application_journey.system_prompt}
+      #{chat.user_application.application_journey.description}
     PROMPT
   end
 
   def initial_messages(chat)
     @ruby_llm_chat = RubyLLM.chat
-    response = @ruby_llm_chat.ask(set_initial_context)
+    response = @ruby_llm_chat.ask(initial_context(chat))
     Message.create(role: "assistant", content: response.content, chat: chat)
   end
 
