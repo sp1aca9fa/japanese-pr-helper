@@ -1,14 +1,16 @@
 <div class="bgg-img">
   <div class="newapps">
     <h2 class="mb-0 fw-bold">New Application</h2>
-      <%= simple_form_for @user_application do |f| %>
-    <div class="newapp">
-      <%= f.association :application_journey, label: "Choose your application journey:", label_method: :description %>
-    </div>
-    <div class="newapp mt-3">
-      <%= f.input :title, label: "Name your journey" %>
-    </div>
-      <%= f.submit label: "Create Application", class: "btn btn-primary mt-5 rounded-5" %>
+      <%= simple_form_for @user_application, html: { data: {controller: "spin"}} do |f| %>
+        <div class="newapp">
+          <%= f.association :application_journey, label: "Choose your application journey:", label_method: :description %>
+        </div>
+        <div class="newapp mt-3">
+          <%= f.input :title, label: "Name your journey" %>
+        </div>
+          <%= button_tag type: "submit", class: "btn btn-primary mt-5 rounded-5", data: { action: "click->spin#start"} do %>
+            <span data-spin-target="text">Create Application</span>
+          <% end %>
       <% end %>
   </div>
 </div>
