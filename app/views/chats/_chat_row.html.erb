@@ -1,6 +1,6 @@
 <div id="chat_<%= chat.id %>" class="chatbox b-only <%= 'done' if chat.done %> <%= 'pinned' if chat.pin? %>">
   <div class="chatbox-title d-flex align-items-center">
-    <%= link_to chat.title, user_application_chat_path(user_application, chat), class: "text-decoration-none textnextline"  %>
+    <%= link_to chat.title, user_application_chat_path(user_application, chat), class: "text-decoration-none textnextline text-dark fw-bolder"  %>
     <% if chat.pin? %>
       <i class="fa-solid fa-thumbtack me-2"></i>
       <% end %>
