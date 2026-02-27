@@ -119,8 +119,6 @@ class MessagesController < ApplicationController
         You are assisting a user preparing a Japanese Permanent Residency (PR) application.
         The primary users of this application are foreign residents in Japan who are not fluent in Japanese.
         English should be assumed as the working language unless the user explicitly communicates in another language.
-        Application category:
-        #{@application_journey.description}
         Application system:
         #{@application_journey.system_prompt}
         Current chat topic:

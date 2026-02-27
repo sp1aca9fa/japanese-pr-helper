@@ -110,7 +110,6 @@ class ChatsController < ApplicationController
       Additional context about the application:
       #{@chat.system_prompt}
       #{@user_application.application_journey.system_prompt}
-      #{@user_application.application_journey.description}
     PROMPT
   end
 
