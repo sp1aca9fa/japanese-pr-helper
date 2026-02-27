@@ -1,4 +1,4 @@
-<div class="chat-main-container d-flex bgg-img bggg-img">
+<div class="chat-main-container d-flex bgg-img bgggg-img-chat">
   <aside class="sidebar-container">
       <div class="username-container text-center">
       <%#= link_to user_applications_path(user_id: current_user.id), class: "text-decoration-none" do %>
@@ -13,7 +13,6 @@
         Application:
         <strong class="nextlineVertwo"><%= @chat.user_application.title %> </strong>
       </p>
-
     </div>
 
 
@@ -43,8 +42,8 @@
 
 
   <div class="message-details-container">
-    <div class="top-container text-center d-flex">
-       <h3 class="top-container-title text-center col-10 textnextline"><%= @chat.title %></h3>
+    <div class="top-container text-center d-flex justify-content-around">
+       <h3 class="top-container-title text-center col-8 textnextline"><%= @chat.title %></h3>
         <div class="d-flex align-items-center gap-2 mt-2 ms-3 mb-2 twobutton">
         <%= render "pin_button", chat: @chat,
                          user_application: @user_application %>
