@@ -4,13 +4,19 @@
       <h2 class="mb-0 fw-bold">Your Applications</h2>
       <%= link_to "New Application", new_user_application_path, class: "btn btn-primary rounded-5" %>
     </div>
-
     <% @user_applications.each do |user_application| %>
-      <%= link_to user_application_chat_path(user_application, user_application.chats.last), class: "app" do %>
+      <div class="app d-flex justify-content-between align-items-center">
+      <%= link_to user_application_chat_path(user_application, user_application.chats.last), class: "text-decoration-none flex-grow-1" do %>
         <div class="app-title nextlineVertwo"><%= user_application.title %> <br>
-          Create at: <%= user_application.created_at %>
+          Created: <%= user_application.created_at.strftime('%b %d, %Y %l:%M %P') %>
         </div>
       <% end %>
+      <div>
+        <%= link_to user_application_path(user_application), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>

@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
 
   # 2- start the chat with llm
   def build_llm
-    @ruby_llm_chat = RubyLLM.chat(model: 'gpt-4o')
+    @ruby_llm_chat = RubyLLM.chat
   end
 
   # 3- intructions to summarize chat_history (used in the next method)
