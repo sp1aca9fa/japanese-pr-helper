@@ -53,10 +53,16 @@
               Document
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <% @messages_with_files.each do |message| %>
-                <li>
-                  <%= link_to message.file.filename, url_for(message.file), class: "dropdown-item", target: "_blank" %>
-                </li>
+              <% if @messages_with_files.any? %>
+                <% @messages_with_files.each do |message| %>
+                  <li>
+                    <%= link_to message.file.filename, url_for(message.file), class: "dropdown-item", target: "_blank" %>
+                  </li>
+                <% end %>
+              <% else %>
+                  <li class="text-center">
+                    No files uploaded
+                  </li>
               <% end %>
             </ul>
           </div>
