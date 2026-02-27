@@ -43,7 +43,7 @@ class UserApplicationsController < ApplicationController
         "Residence Card (在留カード)",
         "Letter of Guarantee (身元保証書)",
         "Proof of Identity for Proxy (申請人以外の方の身分を証する文書)",
-        "Acknowledgement Form (了解所)"
+        "Acknowledgement Form (了解書)"
       ]
     when "long_term"
       titles = [
@@ -61,7 +61,7 @@ class UserApplicationsController < ApplicationController
         "Letter of Guarantee (身元保証書)",
         "Proof of Contributions to Japan (日本国への貢献に係る資料)",
         "Proof of Identity for Proxy (申請人以外の方の身分を証する文書)",
-        "Acknowledgement Form (了解所)"
+        "Acknowledgement Form (了解書)"
       ]
     when "work"
       titles = [
@@ -79,7 +79,7 @@ class UserApplicationsController < ApplicationController
         "Letter of Guarantee (身元保証書)",
         "Proof of Contributions to Japan (日本国への貢献に係る資料)",
         "Proof of Identity for Proxy (申請人以外の方の身分を証する文書)",
-        "Acknowledgement Form (了解所)"
+        "Acknowledgement Form (了解書)"
       ]
     when "highly1a"
       titles = [
@@ -96,7 +96,7 @@ class UserApplicationsController < ApplicationController
         "Passport or Certificate of Residence Status (パスポート（旅券）又は在留資格証明書)",
         "Residence Card (在留カード)",
         "Letter of Guarantee (身元保証書)",
-        "Acknowledgement Form (了解所)"
+        "Acknowledgement Form (了解書)"
       ]
     when "highly1b"
       titles = [
@@ -109,7 +109,7 @@ class UserApplicationsController < ApplicationController
         "Passport or Certificate of Residence Status (パスポート（旅券）又は在留資格証明書)",
         "Residence Card (在留カード)",
         "Letter of Guarantee (身元保証書)",
-        "Acknowledgement Form (了解所)",
+        "Acknowledgement Form (了解書)",
         "Taxation Certificates (所得及び納税状況を証明する資料)",
         "Pension and Health Insurance Payment Records (公的年金及び公的医療保険の保険料の納付状況を証明する資料)",
 
@@ -223,7 +223,7 @@ class UserApplicationsController < ApplicationController
         "Passport or Certificate of Residence Status (パスポート（旅券）又は在留資格証明書)",
         "Residence Card (在留カード)",
         "Letter of Guarantee (身元保証書)",
-        "Acknowledgement Form (了解所)",
+        "Acknowledgement Form (了解書)",
         "Taxation Certificates (所得及び納税状況を証明する資料)",
         "Pension and Health Insurance Payment Records (公的年金及び公的医療保険の保険料の納付状況を証明する資料)",
 
