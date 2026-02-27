@@ -3,7 +3,7 @@ class ChatsController < ApplicationController
   def show
     @chats = @user_application.chats.order(pin: :desc, done: :asc, created_at: :desc)
     @chat = @user_application.chats.find_by(id: params[:id])
-    initial_messages if @chat.messages.empty?
+    initial_message if @chat.messages.empty? && !@chat.system_prompt.nil?
     @message = Message.new
     return redirect_to_latest_open_chat_or_fallback unless @chat.present?
 
@@ -111,7 +111,7 @@ class ChatsController < ApplicationController
     PROMPT
   end
 
-  def initial_messages
+  def initial_message
     @ruby_llm_chat = RubyLLM.chat
     response = @ruby_llm_chat.ask(initial_context)
     Message.create(role: "assistant", content: response.content, chat: @chat)
