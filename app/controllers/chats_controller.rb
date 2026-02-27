@@ -112,7 +112,7 @@ class ChatsController < ApplicationController
   end
 
   def initial_message
-    @ruby_llm_chat = RubyLLM.chat
+    @ruby_llm_chat = RubyLLM.chat(model: 'gpt-5-mini')
     response = @ruby_llm_chat.ask(initial_context)
     Message.create(role: "assistant", content: response.content, chat: @chat)
   end
