@@ -1,12 +1,14 @@
-<div class="chat-main-container d-flex bgg-img">
+<div class="chat-main-container d-flex bggg-img">
   <aside class="sidebar-container">
       <div class="username-container text-center">
-      <%= link_to user_applications_path(user_id: current_user.id), class: "text-decoration-none" do %>
+      <%#= link_to user_applications_path(user_id: current_user.id), class: "text-decoration-none" do %>
       <h3>
-        <%= @chat.user_application.user.first_name %>
-        <%= @chat.user_application.user.last_name %>
+        <strong>
+          <%= @chat.user_application.user.first_name %>
+          <%= @chat.user_application.user.last_name %>
+        </strong>
       </h3>
-      <% end %>
+      <%# end %>
       <p>
         Application:
         <strong class="nextlineVertwo"><%= @chat.user_application.title %> </strong>
@@ -39,7 +41,6 @@
 
 
   </aside>
-
 
 
   <div class="message-details-container">
