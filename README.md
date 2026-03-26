@@ -4,6 +4,15 @@ A Rails web application that helps users navigate the Japanese Permanent Residen
 
 Built as a portfolio project with real-world structure and production-oriented design.
 
+## My Contribution
+
+This project was developed as part of a team. I focused on the messaging and AI integration layer, including:
+
+- Designing and implementing AI prompts using RubyLLM
+- Building real-time messaging with automated AI-generated responses
+- Integrating message flows within the chat system
+- Implementing UI improvements such as auto-scrolling for new messages and loading states for AI responses
+
 ---
 
 ## Overview
